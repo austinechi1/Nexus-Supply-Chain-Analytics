@@ -58,6 +58,7 @@ def load_data() -> pd.DataFrame:
     data = pd.read_csv(file_path)
     for column in ["Order Date", "Expected Delivery", "Actual Delivery"]:
         data[column] = pd.to_datetime(data[column], errors="coerce")
+    data["Month"] = data["Order Date"].dt.to_period("M").dt.to_timestamp()
 
     return data
 
