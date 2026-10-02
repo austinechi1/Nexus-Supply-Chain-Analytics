@@ -139,6 +139,7 @@ if page == "Overview":
     monthly = filtered.groupby("Month", as_index=False).agg(
         Inventory_Value=("Inventory Value", "sum"),
         Units_In_Stock=("Inventory On Hand", "sum"),
+        
     )
     trend = make_subplots(specs=[[{"secondary_y": True}]])
     trend.add_trace(go.Scatter(x=monthly["Month"], y=monthly["Inventory_Value"], name="Inventory Value", line=dict(color=TEAL, width=3), mode="lines+markers"), secondary_y=False)
@@ -171,8 +172,8 @@ if page == "Overview":
         Units_Ordered=("Units Ordered", "sum"), Units_Received=("Units Received", "sum")
     )
     category_chart = go.Figure()
-    category_chart.add_bar(x=category["Category"], y=category["Units Ordered"], name="Ordered", marker_color=NAVY)
-    category_chart.add_bar(x=category["Category"], y=category["Units Received"], name="Received", marker_color=AMBER)
+    category_chart.add_bar(x=category["Category"], y=category["Units_Ordered"], name="Ordered", marker_color=NAVY)
+    category_chart.add_bar(x=category["Category"], y=category["Units_Received"], name="Received", marker_color=AMBER)
     category_chart.update_layout(title="Ordered vs Received by Category", barmode="group")
     base_layout(category_chart)
     a, b = st.columns(2)
