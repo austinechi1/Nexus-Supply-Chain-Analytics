@@ -14,15 +14,15 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-NAVY = "#0B1F33"
-TEAL = "#0F766E"
-AMBER = "#D97706"
-BG = "#F8FAFC"
-SLATE = "#1E293B"
-GREEN = "#15803D"
-RED = "#B91C1C"
-MUTED = "#64748B"
-GRID = "#E2E8F0"
+NAVY = "#1B0E0A"
+TEAL = "#C96F4F"
+AMBER = "#F2C1A5"
+BG = "#1B0E0A"
+SLATE = "#FFF7EF"
+GREEN = "#E69A78"
+RED = "#C96F4F"
+MUTED = "#C9A692"
+GRID = "#5A382E"
 
 st.markdown(
     f"""
@@ -31,16 +31,16 @@ st.markdown(
     [data-testid="stSidebar"] {{ background: {NAVY}; }}
     [data-testid="stSidebar"] * {{ color: white; }}
     [data-testid="stMetric"] {{
-        background: white; border: 1px solid #E2E8F0; border-radius: 16px;
+        background: #351A12; border: 1px solid #5A382E; border-radius: 18px;
         padding: 18px 20px; box-shadow: 0 5px 18px rgba(15, 23, 42, .05);
     }}
     [data-testid="stMetricLabel"] {{ color: {MUTED}; }}
-    [data-testid="stMetricValue"] {{ color: {NAVY}; font-weight: 750; }}
+    [data-testid="stMetricValue"] {{ color: {SLATE}; font-weight: 750; }}
     .block-container {{ padding-top: 2rem; padding-bottom: 2rem; max-width: 1500px; }}
     .eyebrow {{ color: {TEAL}; font-size: .78rem; font-weight: 800; letter-spacing: .12em; }}
     .subtitle {{ color: {MUTED}; margin-top: -.5rem; }}
     .insight {{
-        background: white; border-left: 5px solid {AMBER}; border-radius: 12px;
+        background: #351A12; border-left: 5px solid {TEAL}; border-radius: 12px;
         padding: 14px 18px; margin: 8px 0 20px 0;
     }}
     div[data-baseweb="select"] > div {{ border-radius: 10px; }}
@@ -58,7 +58,7 @@ def load_data() -> pd.DataFrame:
     data = pd.read_csv(file_path)
     for column in ["Order Date", "Expected Delivery", "Actual Delivery"]:
         data[column] = pd.to_datetime(data[column], errors="coerce")
-    data["Month"] = data["Order Date"].dt.to_period("M").dt.to_timestamp()
+        paper_bgcolor="#351A12",
     return data
 
 
@@ -75,9 +75,9 @@ def base_layout(fig: go.Figure, height: int = 360) -> go.Figure:
         height=height,
         margin=dict(l=20, r=20, t=55, b=20),
         paper_bgcolor="white",
-        plot_bgcolor="white",
+        plot_bgcolor="#351A12",
         font=dict(family="Arial", color=SLATE),
-        title_font=dict(size=17, color=NAVY),
+        title_font=dict(size=17, color=SLATE),
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         hoverlabel=dict(bgcolor="white"),
     )
