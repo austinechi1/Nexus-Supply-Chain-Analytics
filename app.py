@@ -58,7 +58,7 @@ def load_data() -> pd.DataFrame:
     data = pd.read_csv(file_path)
     for column in ["Order Date", "Expected Delivery", "Actual Delivery"]:
         data[column] = pd.to_datetime(data[column], errors="coerce")
-        paper_bgcolor="#351A12",
+
     return data
 
 
@@ -74,7 +74,7 @@ def base_layout(fig: go.Figure, height: int = 360) -> go.Figure:
     fig.update_layout(
         height=height,
         margin=dict(l=20, r=20, t=55, b=20),
-        paper_bgcolor="white",
+        paper_bgcolor="#351A12",
         plot_bgcolor="#351A12",
         font=dict(family="Arial", color=SLATE),
         title_font=dict(size=17, color=SLATE),
