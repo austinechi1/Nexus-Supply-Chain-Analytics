@@ -120,7 +120,7 @@ Suppliers are scored using late-delivery frequency, lead time, and defect perfor
 - Total inventory value is approximately **£115.18M** across the synthetic dataset.
 - Overall on-time delivery is approximately **79.7%**.
 - June 2026 forecast inventory value is approximately **£3.42M**.
-- Six-month holdout backtesting produces approximately **2.2% MAPE**, equivalent to about **97.8% accuracy**.
+- Six-month holdout backtesting produces approximately **2.2% mean absolute percentage error (MAPE)** on the synthetic dataset. MAPE is an error metric, not a real-world forecast accuracy guarantee.
 - **10 products** are classified as high risk under the current unfiltered view.
 - **GlobalParts** has the highest supplier delay-risk score in the current unfiltered view.
 
